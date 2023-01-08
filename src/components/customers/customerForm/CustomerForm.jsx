@@ -14,7 +14,6 @@ export function CustomerForm() {
         fullName: '',
         email: '',
         password: '',
-        phoneNumber: '',
         isAdmin: false
     };
     const [currentCustomer, setCurrentCustomer] = useState(emptyCustomer);
@@ -44,26 +43,15 @@ export function CustomerForm() {
         });
     }
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
+        console.log(getLoggedCustomer())
         event.preventDefault();
-        postCustomer(currentCustomer).then(() => {
+       await postCustomer(currentCustomer).then(() => {
             navigate('/customers');
         }).catch(error => {
             setError(error.message);
         });
     }
-
-  //  const renderIsAdminControl = () => {
-  //      const loggedCustomer = getLoggedCustomer();
-//
-  //      if (!loggedCustomer || !loggedCustomer.isAdmin || loggedCustomer.id === currentCustomer.id)
-  //          return '';
-//
-  //      return <Form.Group className="mb-3" controlId="formBasicEmail">
-  //          <Form.Label>Is Admin</Form.Label>
-  //          <Form.Check name="isAdmin" onChange={onCheckboxChange} checked={parseBool(currentCustomer.isAdmin)} />
-  //      </Form.Group>
-  //  }
 
     const navigateIfNotAdmin = () => {
         const loggedCustomer = getLoggedCustomer();
@@ -84,10 +72,6 @@ export function CustomerForm() {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" name="email" placeholder="Enter Email" onChange={onFormControlChange} value={currentCustomer.email} required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId='formBasicPhone'>
-                    <Form.Label>phone Number</Form.Label>
-                    <Form.Control type="phone" name="phone" placeholder="Enter Phone number" onChange={onFormControlChange} value={currentCustomer.phoneNumber} required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>

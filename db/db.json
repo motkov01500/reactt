@@ -4,27 +4,29 @@
       "id": 1,
       "fullName": "Todor Ivanov",
       "email": "todor@gmai.com",
-      "phoneNumber": "0898871905",
       "password": "456",
       "isAdmin": "true"
     },
     {
       "id": 2,
       "fullName": "Zhivodar Kanev",
-      "email": "Zhasd.Nqasd3902@gmail.com",
-      "phoneNumber": "0887546512",
+      "email": "qasd3902@gmail.com",
       "password": "1234",
-      "isAdmin": "false",
-      "phone number": "088754651"
+      "isAdmin": "false"
     },
     {
       "id": 3,
-      "fullName": "Kuncho Kanev",
+      "fullName": "Kuncho Kanev666",
       "email": "ivan.ivanov3902@gmail.com",
-      "phoneNumber": "0887546512",
       "password": "0000",
-      "isAdmin": "false",
-      "phone number": "088754651"
+      "isAdmin": "false"
+    },
+    {
+      "fullName": "11111",
+      "email": "11@11.11",
+      "password": "0000",
+      "isAdmin": false,
+      "id": 4
     }
   ],
   "vehicles": [
@@ -46,11 +48,13 @@
       "model": "G63 Brabus",
       "constructionYear": "2020",
       "vechileType": "SUV",
-      "fuelType": "petrol",
+      "fuelType": "Hybrid",
       "NumberOfSeats": 6,
       "picture": "https://cdn.motor1.com/images/mgl/K9XW1/s1/brabus-800-black-gold-edition.jpg",
       "pricePerDay": 2800,
-      "count": 3
+      "count": 3,
+      "numberOfSeats": "7",
+      "countOfCars": "31"
     },
     {
       "id": 3,
@@ -74,46 +78,18 @@
       "customer": "2"
     },
     {
-      "id": "2",
-      "startDateAndTime": "28.11.2022, 22:47:58",
-      "endDateAndTime": "30.11.2022, 22:47:58",
-      "vehicle": "1",
-      "customer": "3"
+      "startDateAndTime": "2023-01-08T20:10:58.908Z",
+      "endDateAndTime": "2023-01-10T20:10:58.908Z",
+      "vehicle": 1,
+      "customer": 3,
+      "id": "eXNrAP9"
     },
     {
-      "startDateAndTime": "2023-01-07T19:01:22.520Z",
-      "endDateAndTime": "2023-01-09T19:01:22.520Z",
-      "vehicle": "1",
-      "customer": 3,
-      "id": "l9ssWGu"
-    },
-    {
-      "startDateAndTime": "2023-01-07T19:02:06.347Z",
-      "endDateAndTime": "2023-03-07T19:02:06.347Z",
-      "vehicle": "3",
-      "customer": 3,
-      "id": "IE9u22n"
-    },
-    {
-      "startDateAndTime": "2023-01-07T19:27:50.551Z",
-      "endDateAndTime": "2023-01-09T19:27:50.551Z",
-      "vehicle": "3",
-      "customer": 3,
-      "id": "8wM9PZd"
-    },
-    {
-      "startDateAndTime": "2023-01-07T19:27:51.521Z",
-      "endDateAndTime": "2023-01-09T19:27:51.521Z",
-      "vehicle": "2",
-      "customer": 3,
-      "id": "Ip1b2Pi"
-    },
-    {
-      "startDateAndTime": "2023-01-07T19:32:04.492Z",
-      "endDateAndTime": "2023-01-09T19:32:04.492Z",
-      "vehicle": "1",
-      "customer": 3,
-      "id": "v4jaKeX"
+      "startDateAndTime": "2023-01-08T21:28:51.275Z",
+      "endDateAndTime": "2023-01-10T21:28:51.275Z",
+      "vehicle": 2,
+      "customer": 4,
+      "id": "AzfsdON"
     }
   ]
 }

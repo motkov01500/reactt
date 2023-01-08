@@ -10,7 +10,7 @@ export function Header() {
 
     const onLogout = () => {
         logout().then(() => {
-            navigate('/login');
+            navigate('login');
         });
     }
 

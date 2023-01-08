@@ -14,7 +14,7 @@ export async function postCustomer(customerObj) {
 
     const response = await getCustomers();
     const customers = response.data;
-    const existingCustomer = customers.find(u => u.email === customerObj.email && u.id !== customerObj.id);
+    const existingCustomer = customers.find(u => u.email === customerObj.email && u.id != customerObj.id);
 
     if (existingCustomer) {
         throw new Error('Email already taken.');
@@ -22,7 +22,6 @@ export async function postCustomer(customerObj) {
 
     if (customerObj.id) {
         return axios.put(`${apiUrl}/${customerObj.id}`, customerObj).then(() => {
-            localStorage.setItem('loggedUser', JSON.stringify(customerObj));
         });
     }
     return axios.post(apiUrl, customerObj);

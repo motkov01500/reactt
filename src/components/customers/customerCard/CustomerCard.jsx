@@ -13,7 +13,7 @@ export function CustomerCard({ customer, onDelete }) {
     }
 
     const navigateToUpdate = () => {
-        navigate(`/customers/edit/${customer.id}`);
+        navigate(`edit/${customer.id}`);
     }
 
     const renderActionButtons = () => {
@@ -41,7 +41,6 @@ export function CustomerCard({ customer, onDelete }) {
                 </Card.Title>
             </Card.Body>
             <ListGroup className="list-group-flush">
-                <ListGroup.Item>Phone: {customer.phoneNumber}</ListGroup.Item>
                 <ListGroup.Item>Email: {customer.email} </ListGroup.Item>
             </ListGroup>
             <Card.Body>

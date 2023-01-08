@@ -1,0 +1,38 @@
+:root{font-size: 62.5%;}
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    border:2px solid teal
+}
+
+#fluid-container{
+    border-radius: 10px;
+    margin-right: 2rem;
+    width: 30rem;
+    height: 30rem;
+    display: inline-block;
+    padding: 2;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, .2); ;
+}
+
+#container> #propsValues{
+    margin-left: 2rem;
+}
+
+
+div > h1{
+    text-align: center;
+    font-size: 2.4rem;
+    border-top: 2px solid teal;
+}
+
+img{
+    width: 20rem;
+    height: 12rem;
+}
