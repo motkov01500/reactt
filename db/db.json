@@ -85,11 +85,18 @@
       "id": "eXNrAP9"
     },
     {
-      "startDateAndTime": "2023-01-08T21:28:51.275Z",
-      "endDateAndTime": "2023-01-10T21:28:51.275Z",
-      "vehicle": 2,
+      "startDateAndTime": "2023-01-09T15:26:24.695Z",
+      "endDateAndTime": "2023-01-11T15:26:24.695Z",
+      "vehicle": 3,
       "customer": 4,
-      "id": "AzfsdON"
+      "id": "RlJ8nKf"
+    },
+    {
+      "startDateAndTime": "2023-01-09T15:26:45.685Z",
+      "endDateAndTime": "2023-01-11T15:26:45.685Z",
+      "vehicle": 3,
+      "customer": 3,
+      "id": "V2c1y9V"
     }
   ]
 }
