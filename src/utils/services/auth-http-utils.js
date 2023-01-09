@@ -16,10 +16,11 @@ export async function login(loginCreds) {
     const foundCustomer = [...customers]
         .find(customer => customer.email === loginCreds.email && customer.password === loginCreds.password);
 
+        localStorage.setItem('loggedUser', JSON.stringify(foundCustomer));
+
     if (!foundCustomer) {
         throw new Error('Invalid email/password');
     }
-
     localStorage.setItem('loggedUser', JSON.stringify(foundCustomer));
     
     return foundCustomer;

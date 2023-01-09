@@ -7,6 +7,7 @@ export function AuthenticatedRoute({ children }) {
     if (!customer) {
         return <Navigate to="/login" />;
     }
+    //
 
     return children;
 }

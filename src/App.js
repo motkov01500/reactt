@@ -10,6 +10,7 @@ import { Register } from './components/auth/register/Register';
 import { VehicleForm } from './components/vehicles/vehiclesForm/VehicleForm';
 import { VehicleList } from './components/vehicles/vehiclesList/VehicleList';
 import {RentedVehicles} from './components/vehicles/rentedVehicles/RentedVehicles';
+// import {RentedVehicleCard} from './components/vehicles/rentedVehicleCard//rentedVehicleCard';
 
 function App() {
   return (

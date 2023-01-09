@@ -1,26 +1,37 @@
-import React,{useState,useEffect} from 'react'
-import {getRentedVehicles,maikati} from '../../../utils/services/rentalEventUtils'
+import React, { useState, useEffect } from 'react'
+import { getRentedVehiclesByUserId, getRentalEventsByUserId } from '../../../utils/services/rentalEventUtils'
 import { getVehicleById } from '../../../utils/services/vehiclesUtils';
-import {VehicleList} from "../vehiclesList/VehicleList"
-import { VehicleCard } from '../vehicleCard/VehicleCard';
+import { VehicleList } from "../vehiclesList/VehicleList"
+import { RentedVehicleCard } from '../rentedVehicleCard/RentedVehicleCard';
 import { getLoggedCustomer } from '../../../utils/services/auth-http-utils';
-export const RentedVehicles = () => {
+import { deleteRentalEvent } from '../../../utils/services/rentalEventUtils';
+
+export function RentedVehicles() {
   const loggedCustomer = getLoggedCustomer();
-  const [currentVehicle,setCurrentVehicle] = useState([]);
+  const [rentedVehiclesByUserId, setRentedVehiclesByUserId] = useState([]);
 
-console.log(maikati());
+  useEffect(() => {
 
-return (
-<div className="vehicleCards">
-    <VehicleCard key={cars[0].id} id={cars[0].id} img={cars[0].picture} brand={cars[0].brand} model={cars[0].model} constructionYear={cars[0].constructionYear} fuelType={cars[0].fuelType} NumberOfSeats={cars[0].NumberOfSeats} count={cars[0].count}/>
+    getRentedVehiclesByUserId().then(response => {
+      setRentedVehiclesByUserId(response)
+    });
+
+  }, []);
+
+  return (
+    <div className="vehicleCards1">
+      {
+        rentedVehiclesByUserId.map(vehicle => <RentedVehicleCard key={vehicle.id} id={vehicle.id} img={vehicle.picture} brand={vehicle.brand} model={vehicle.model} constructionYear={vehicle.constructionYear} fuelType={vehicle.fuelType} NumberOfSeats={vehicle.NumberOfSeats} count={vehicle.count}
+          clickReturn={async () => {
+            await deleteRentalEvent(vehicle).then(() => {
+
+              setRentedVehiclesByUserId((allRentedVehicles) => {
+                return allRentedVehicles.filter(v => v.id !== vehicle.id);
+              });
+            })
+          }}
+        />)
+      }
     </div>
-)
+  )
 }
-
-
-// localStorage.getItem('rentCars').split(',').forEach(x=>{
-//   if(x!= '' || x!= undefined || x!= null){
-//     getVehicleById(x).then(car=>{
-//       setCurrentVehicle(car.data)
-//     })}
-// })

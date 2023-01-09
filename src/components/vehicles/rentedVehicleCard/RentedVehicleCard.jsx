@@ -1,24 +1,13 @@
 import React from 'react'
-import { getLoggedCustomer } from '../../../utils/services/auth-http-utils';
+import './RentedVehicleCard.scss';
 
-import './VehicleCard.css';
+export const RentedVehicleCard = (props) => {
 
-export const VehicleCard = (props) => {
     const printUpdateDeleteButtons = () => {
-        const loggedCustomer = getLoggedCustomer();
-        if (loggedCustomer.isAdmin) {
-            {
-                return (<div id="buttons">
-                    <button onClick={props.clickUpdate}>update</button>
-                    <button onClick={props.clickDelete}>delete</button>
-                </div>)
-            }
-        }
-        else {
-            {
-                return (<button onClick={props.clickRent}>Rent</button>)
-            }
-        }
+
+        return (<div id="buttons">
+            <button onClick={props.clickReturn}>Return</button>
+        </div>)
     }
 
     return (

@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
-import { login } from "../../../utils/services/auth-http-utils";
+import { getLoggedCustomer, login } from "../../../utils/services/auth-http-utils";
 import { useNavigate } from "react-router";
 
 import './Login.scss';
@@ -31,7 +31,6 @@ export function Login() {
             .catch((err) => {
                 setError(err.message);
             });
-
     }
 
     return (
