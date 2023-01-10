@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { getLoggedCustomer } from '../../../utils/services/auth-http-utils';
 import { Link } from 'react-router-dom';
 
-export function CustomerCard({ customer, onDelete }) {
+export function CustomerCard({ customer, onDelete , onUpdate}) {
 
     const navigate = useNavigate();
 
@@ -13,7 +13,8 @@ export function CustomerCard({ customer, onDelete }) {
     }
 
     const navigateToUpdate = () => {
-        navigate(`edit/${customer.id}`);
+        // navigate(`customers/edit/${customer.id}`);
+        onUpdate(customer.id)
     }
 
     const renderActionButtons = () => {
@@ -27,17 +28,18 @@ export function CustomerCard({ customer, onDelete }) {
         }
 
         if (LoggedCustomer.id === customer.id) {
-            return <Card.Link onClick={navigateToUpdate} >Update</Card.Link>;
+            // return <Card.Link onClick={navigateToUpdate} >Update</Card.Link>;
+            return <Card.Title>Me</Card.Title>;
         }
     }
 
     return (
         <Card style={{ width: '18rem', margin: '20px' }}>
             <Card.Body>
-                <Card.Title>
-                    <Link to={`/profile/${customer.id}`}>
+                <Card.Title>{customer.fullName}
+                    {/* <Link to={`/profile/${customer.id}`}>
                         {customer.fullName}
-                    </Link>
+                    </Link> */}
                 </Card.Title>
             </Card.Body>
             <ListGroup className="list-group-flush">
