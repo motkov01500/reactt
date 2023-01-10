@@ -5,7 +5,7 @@ import { getVehicleById, getVehicles } from './vehiclesUtils';
 
 const apiUrl = 'http://localhost:3005/rentalEvent';
 
-export async function getRentalEvents(){
+export async function getRentalEvents() {
     return axios.get(`${apiUrl}`)
 }
 
@@ -20,6 +20,20 @@ export async function getRentalEventsByUserId() {
     return rentedVehicles;
 }
 
+export async function getRentalEventByVehicleId(vehicleId) {
+    var rentalEvent;
+    await getRentalEventsByUserId().then(response => {
+        response.forEach(element => {
+            for (let x in element) {
+                if (element[x].vehicle == vehicleId) {
+                    rentalEvent = element[x];
+                }
+            }
+        });
+    });
+    return rentalEvent;
+}
+
 //returns all vehicles (rented by the loged user) in order to map them to 'RentedVehicleCard'
 export async function getRentedVehiclesByUserId() {
     var rentalEventsByUserId = [];
@@ -29,6 +43,7 @@ export async function getRentedVehiclesByUserId() {
         response.forEach(element => {
             for (let x in element) {
                 rentalEventsByUserId.push(element[x]);
+                // console.log(element[x].vehicle)
             }
         });
     });
@@ -80,22 +95,22 @@ export async function deleteRentalEvent(vehicleObj) {
     await deleteRentalEventById(rentalEvent.id)
 }
 
-export function deleteRentalEventsByVehicleId(vehicleId){
-    getRentalEvents().then(x=>{
-    x.data.forEach(y=>{
-        if(y.vehicle == vehicleId){
-            deleteRentalEventById(y.id)
-        }
+export function deleteRentalEventsByVehicleId(vehicleId) {
+    getRentalEvents().then(x => {
+        x.data.forEach(y => {
+            if (y.vehicle == vehicleId) {
+                deleteRentalEventById(y.id)
+            }
+        })
     })
-   })
 }
 
-export function deleteRentalEventsByUserId(userId){
-    getRentalEvents().then(x=>{
-    x.data.forEach(y=>{
-        if(y.customer == userId){
-            deleteRentalEventById(y.id)
-        }
+export function deleteRentalEventsByUserId(userId) {
+    getRentalEvents().then(x => {
+        x.data.forEach(y => {
+            if (y.customer == userId) {
+                deleteRentalEventById(y.id)
+            }
+        })
     })
-   })
 }
